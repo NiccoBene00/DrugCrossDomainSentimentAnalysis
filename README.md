@@ -29,7 +29,7 @@ in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), cerca
 >     [1] @Hutto, C.J. & Gilbert, E.E. (2014). VADER: A Parsimonious Rule-based Model for Sentiment Analysis of Social Media Text. Eighth International Conference on Weblogs and Social Media (ICWSM-14). Ann 
 >         Arbor, MI, June 2014.
 >  3. realizzazione del modello:
->     il modello prevede come dati di train i testi delle reviews e come etichette un rating ottenuto valutando il valore di polarità (numero reale) ricavato nello step precedente. In particolare
+>     il modello prevede come dati di train i testi delle reviews e come etichette un nuovo rating, ottenuto valutando il valore di polarità (numero reale) ricavato nello step precedente. In particolare
 >     se questo rientra nel range [-1;0.3] allora il valore di etichetta è 0 (sentimento negativo), se cade in (-0.3;0.3) allora l'etichetta corrisponde a 1 (sentimento neutro), mentre se
 >     rientra nell'intervallo [0.3;1] etichetta equivale a 2 (sentimento positivo).
 >  5. addestramento e test del modello 
