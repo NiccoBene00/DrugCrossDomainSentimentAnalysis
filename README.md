@@ -9,4 +9,4 @@ in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), cerca
 
 Contenuto della repository:
   - **Cross-Domain_SentimentAnlysis.ipynb** Jupyter Notebook del codice del progetto implementato con Google Colab
-  - **CDSentimentAnalysis.pdf** documentazione del progetto 
+  - **CD_SentimentAnalysis.pdf** documentazione del progetto 
