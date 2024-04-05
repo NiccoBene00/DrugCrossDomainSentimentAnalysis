@@ -1,6 +1,8 @@
-# Cross domain sentiment analysis on drugs reviews
+# Cross domain sentiment analysis on drugs reviews - AI - 23/24 UNIFI
+## Studente: Niccolò Benedetto MAT. 7024656
+## Docente: Paolo Frasconi
 
-AI - 23/24 UNIFI
+
 
 **Project Assignment**: 
 In questo esercizio si utilizzano implementazioni disponibili dell’algoritmo Perceptron (p.es. [scikit-learn](https://scikit-learn.org/stable/) 
@@ -9,5 +11,5 @@ in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), cerca
 
 > [!IMPORTANT]
 > Contenuto della repository:
->  - **Cross_Domain_SentimentAnlysis.ipynb** Jupyter Notebook del codice del progetto implementato con Google Colab
->  - **CD_SentimentAnalysis.pdf** documentazione del progetto 
+>  - **Cross_Domain_SentimentAnlysis.ipynb**, Jupyter Notebook del codice del progetto implementato con Google Colab
+>  - **CD_SentimentAnalysis.pdf**, documentazione del progetto 
