@@ -17,6 +17,7 @@ in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), cerca
 
 > [!NOTE]
 > Informazioni utili
+> 
 > L'implementazione del codice necessario alla realizzazione del progetto segue le seguenti fasi:
 >  1. preparazione del dataset
 >  2. realizzazione del modello
