@@ -40,5 +40,6 @@ in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), cerca
 >  4. addestramento e test del modello:
 >     l'estrazione delle lexical-features dai dati di train viene eseguita attraverso il ricorso alla classe TfidVectorized del modulo scikit-learn. Si ottiene dunque
 >     una nuova rappresentazione in forma matriciale dove le righe corrispondono ai testi e le colonne corrispondono a valori proporzionali alle features,
->     che tengono conto ella frequenza delle parole nel documento e della frequenza inversa nel corpus di addestramento (vedi [about TfidVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html#) per maggiori info)
->  6. produzione dei risultati
+>     che tengono conto ella frequenza delle parole nel documento e della frequenza inversa nel corpus di addestramento (vedi [about TfidVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html#) per maggiori info). Si addestra quindi il modello mediante l'algoritmo predittivo
+>     Perceptron a cui vengono passate le lexical-features estratte e le rispettive etichette.
+>  6. produzione dei risultati:
