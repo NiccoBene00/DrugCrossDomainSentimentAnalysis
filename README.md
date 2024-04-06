@@ -26,8 +26,7 @@ in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), cerca
 >     allora il valore di rating è 0 (sentimento negativo), se cade in (-0.3;0.3), allora rating corrisponde a 1 (sentimento neutro), mentre se
 >     rientra nell'intervallo [0.3;1], rating equivale a 2 (sentimento positivo).
 > 
->     **Osservazione:** il range scelto per definire il nuovo valore di rating è da ritenersi congruo con il significato dei valori di compound generati dal tool VADER (vedi [about the scoring of VADER analysis] 
->     (https://github.com/cjhutto/vaderSentiment)). Scelte di intervalli diversi
+>     **Osservazione:** il range scelto per definire il nuovo valore di rating è da ritenersi congruo con il significato dei valori di compound generati dal tool VADER (vedi [about the scoring of VADER analysis](https://github.com/cjhutto/vaderSentiment)). Scelte di intervalli diversi
 >     potranno, a seguito dell'addestramento del modello, produrre risultati diversi.
 > 
 >     **Citazioni**
