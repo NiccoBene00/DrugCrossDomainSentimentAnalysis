@@ -30,7 +30,10 @@ in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), cerca
 >         Arbor, MI, June 2014.
 >  3. realizzazione del modello:
 >     il modello prevede come dati di train i testi delle reviews e come etichette un nuovo rating, ottenuto valutando il valore di polarità (numero reale) ricavato nello step precedente. In particolare
->     se questo rientra nel range [-1;0.3] allora il valore di etichetta è 0 (sentimento negativo), se cade in (-0.3;0.3) allora l'etichetta corrisponde a 1 (sentimento neutro), mentre se
->     rientra nell'intervallo [0.3;1] etichetta equivale a 2 (sentimento positivo).
+>     se questo rientra nel range [-1;0.3] allora il valore di rating è 0 (sentimento negativo), se cade in (-0.3;0.3) allora rating corrisponde a 1 (sentimento neutro), mentre se
+>     rientra nell'intervallo [0.3;1] rating equivale a 2 (sentimento positivo).
+>
+>     **Osservazione:** il range scelto per definire il nuovo valore di rating è da ritenersi congruo con il significato dei valori di compound generati dal tool VADER. Scelte di intervalli diversi
+>     potranno, a seguito dell'addestramento del modello, produrre risultati diversi.
 >  5. addestramento e test del modello 
 >  6. produzione dei risultati
