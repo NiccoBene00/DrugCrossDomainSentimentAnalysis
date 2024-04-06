@@ -22,7 +22,8 @@ in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), cerca
 >  1. preparazione dei dati del dataset:
 >     pre-processing del testo delle reviews attraverso la libreria [NLTK](https://www.nltk.org/#natural-language-toolkit) e valutazione della polarità 
 >     mediante il tool [VADER](https://pypi.org/project/vaderSentiment/). La valutazione di polarità fornirà un quantificatore (numero reale) che viene sfruttato per definire
->     una nuova colonna del database, che rappresenta un nuovo valore di rating, il quale verrà utilizzato come etichetta del modello. In particolare sei il quantificatore rientra nel range [-1;0.3] allora il     >     valore di rating è 0 (sentimento negativo), se cade in (-0.3;0.3) allora rating corrisponde a 1 (sentimento neutro), mentre se
+>     una nuova colonna del database, che rappresenta un nuovo valore di rating, il quale verrà utilizzato come etichetta del modello. In particolare sei il quantificatore rientra nel range [-1;0.3]
+>     allora il valore di rating è 0 (sentimento negativo), se cade in (-0.3;0.3) allora rating corrisponde a 1 (sentimento neutro), mentre se
 >     rientra nell'intervallo [0.3;1] rating equivale a 2 (sentimento positivo).
 > 
 >     **Osservazione:** il range scelto per definire il nuovo valore di rating è da ritenersi congruo con il significato dei valori di compound generati dal tool VADER. Scelte di intervalli diversi
