@@ -37,5 +37,8 @@ in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), cerca
 >  2. realizzazione del modello:
 >     il modello prevede come dati di train i vari testi delle reviews, dunque associa come etichetta il rispettivo valore di rating (rating_model) calcolato durante la
 >     fase di preparazione dei dati.
->  4. addestramento e test del modello 
->  5. produzione dei risultati
+>  4. addestramento e test del modello:
+>     l'estrazione delle lexical-features dai dati di train viene eseguita attraverso il ricorso alla classe TfidVectorized del modulo scikit-learn. Si ottiene dunque
+>     una nuova rappresentazione di queste in forma matriciale dove le righe corrispondono ai testi e le colonne corrispondono a valori proporzionali alle features,
+>     che tengono conto ella frequenza delle parole nel documento e della frequenza inversa nel corpus di addestramento (vedi [about TfidVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html#) per maggiori info)
+>  6. produzione dei risultati
