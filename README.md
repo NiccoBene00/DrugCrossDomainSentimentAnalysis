@@ -34,7 +34,8 @@ in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), cerca
 >     
 >     [1] @Hutto, C.J. & Gilbert, E.E. (2014). VADER: A Parsimonious Rule-based Model for Sentiment Analysis of Social Media Text. Eighth International Conference on 
 >         Weblogs and Social Media (ICWSM-14). Ann Arbor, MI, June 2014.
->  3. realizzazione del modello:
->     
->  5. addestramento e test del modello 
->  6. produzione dei risultati
+>  2. realizzazione del modello:
+>     il modello prevede come dati di train i vari testi delle reviews, dunque associa come etichetta il rispettivo valore di rating (rating_model) calcolato durante la
+>     fase di preparazione dei dati.
+>  4. addestramento e test del modello 
+>  5. produzione dei risultati
