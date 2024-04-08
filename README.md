@@ -20,7 +20,8 @@ in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), cerca
 > 
 > L'implementazione del codice necessario alla realizzazione del progetto segue le seguenti fasi
 >  1. preparazione dei dati del dataset:
->     pre-processing del testo delle reviews attraverso la libreria [NLTK](https://www.nltk.org/#natural-language-toolkit) e valutazione della polarità 
+>     pre-processing del testo (rimozione caratteri alfanumerici, conversione in minuscolo, tokenizzazione, rimozione delle stop-words) delle reviews attraverso la libreria
+>     [NLTK](https://www.nltk.org/#natural-language-toolkit) e valutazione della polarità 
 >     mediante il tool [VADER](https://pypi.org/project/vaderSentiment/). Questa valutazione fornirà un quantificatore (numero reale) che viene sfruttato per 
 >     definire una nuova colonna del dataset, che rappresenta un nuovo valore di rating, il quale verrà utilizzato come etichetta del modello. In particolare se il 
 >     quantificatore rientra nel range [-1;0.3], allora il valore di rating è 0 (sentimento negativo), se cade in (-0.3;0.3), allora rating corrisponde a 1 
@@ -31,15 +32,21 @@ in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), cerca
 >     potranno, a seguito dell'addestramento del modello, produrre risultati diversi.
 > 
 >     **Citazioni**
->     
 >     [1] @Hutto, C.J. & Gilbert, E.E. (2014). VADER: A Parsimonious Rule-based Model for Sentiment Analysis of Social Media Text. Eighth International Conference on 
 >         Weblogs and Social Media (ICWSM-14). Ann Arbor, MI, June 2014.
->  2. realizzazione del modello:
+>  3. realizzazione del modello:
 >     il modello prevede come dati di train i vari testi delle reviews, dunque associa come etichetta il rispettivo valore di rating (rating_model) calcolato durante la
 >     fase di preparazione dei dati.
+>
+>     **Osservazione:** il modello viene addestrato anche su i testi delle reviews grezzi (i.e. senza alcun tipo di pre-processing dei dati testuali). L'analisi del confronto dei
+>     risultati (ottenuti per reviews "grezze" e reviews "pulite") fornirà qualche informazione sull'utilità di utilizzo della libreria NLTK.
 >  4. addestramento e test del modello:
 >     l'estrazione delle lexical-features dai dati di train viene eseguita attraverso il ricorso alla classe TfidVectorized del modulo scikit-learn. Si ottiene dunque
 >     una nuova rappresentazione in forma matriciale dove le righe corrispondono ai testi e le colonne corrispondono a valori proporzionali alle features,
 >     che tengono conto ella frequenza delle parole nel documento e della frequenza inversa nel corpus di addestramento (vedi [about TfidVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html#) per maggiori info). Si addestra quindi il modello mediante l'algoritmo predittivo
->     Perceptron a cui vengono passate le lexical-features estratte e le rispettive etichette.
+>     Perceptron a cui vengono passate come input le lexical-features estratte e le rispettive etichette.
+>
+>     **Osservazione:** durante la fase di estrazione delle lexiacal-features si è deciso di far considerare all'istanza della classe TfidVectorizer le parole dei testi delle reviews
+>     come unità di analisi per il vettorizzatore; in particolare questo valuta gli unigrammi (singole parole) e i bi-grammi (coppie di parole adiacenti), differentemente da lavoro
+>     descritto in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), in cui si considerano anche i trigrammi.
 >  6. produzione dei risultati:
