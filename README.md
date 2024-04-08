@@ -31,7 +31,6 @@ in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), cerca
 >     VADER (vedi [about the scoring of VADER analysis](https://github.com/cjhutto/vaderSentiment)). Scelte di intervalli diversi
 >     potranno, a seguito dell'addestramento del modello, produrre risultati diversi.
 > 
->     **Citazioni**
 >     [1] @Hutto, C.J. & Gilbert, E.E. (2014). VADER: A Parsimonious Rule-based Model for Sentiment Analysis of Social Media Text. Eighth International Conference on 
 >         Weblogs and Social Media (ICWSM-14). Ann Arbor, MI, June 2014.
 >  3. realizzazione del modello:
@@ -44,9 +43,11 @@ in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), cerca
 >     l'estrazione delle lexical-features dai dati di train viene eseguita attraverso il ricorso alla classe TfidVectorized del modulo scikit-learn. Si ottiene dunque
 >     una nuova rappresentazione in forma matriciale dove le righe corrispondono ai testi e le colonne corrispondono a valori proporzionali alle features,
 >     che tengono conto ella frequenza delle parole nel documento e della frequenza inversa nel corpus di addestramento (vedi [about TfidVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html#) per maggiori info). Si addestra quindi il modello mediante l'algoritmo predittivo
->     Perceptron a cui vengono passate come input le lexical-features estratte e le rispettive etichette.
+>     Perceptron a cui vengono passate come input le lexical-features estratte e le rispettive etichette. L'analisi cross-domain ci impone poi di utilizzare iterativamente Perceptron
+>     per l'addestramento e il test del modello sui testi delle reviews appartenenti a porzioni del dataset complessivo, ottenute considerando tutte le possibili combinazioni conseguibili
+>     incrociando coppie di domini (si veda la documentazione del progetto per maggiori chiarimenti).
 >
->     **Osservazione:** durante la fase di estrazione delle lexiacal-features si è deciso di far considerare all'istanza della classe TfidVectorizer le parole dei testi delle reviews
+>     **Osservazione:** durante la fase di estrazione delle lexical-features si è deciso di far considerare all'istanza della classe TfidVectorizer le parole dei testi delle reviews
 >     come unità di analisi per il vettorizzatore; in particolare questo valuta gli unigrammi (singole parole) e i bi-grammi (coppie di parole adiacenti), differentemente da lavoro
 >     descritto in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), in cui si considerano anche i trigrammi.
 >  6. produzione dei risultati:
