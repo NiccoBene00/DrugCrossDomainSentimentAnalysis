@@ -52,4 +52,4 @@ in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), cerca
 >     descritto in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), in cui si considerano anche i trigrammi.
 >  6. produzione dei risultati: Perceptron genera un quantificatore, definito accuratezza della predizione, ottenute per una valutazione di confronto tra l'array delle etichette reali dei dati
 >     di test e l'array delle predizioni effettuate. L'accuratezza è dunque calcolata attraverso il rapporto delle tra le predizioni corrette rispetto al totale delle predizioni generate. Il
->     quantificatore asssociato sarà un numero compreso tra 0 (nessuna predizione corretta) e 1 (tutte le predizioni effettuate sono corrette).
+>     quantificatore associato sarà un numero compreso tra 0 (nessuna predizione corretta) e 1 (tutte le predizioni effettuate sono corrette).
