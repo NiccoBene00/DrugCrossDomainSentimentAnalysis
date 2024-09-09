@@ -1,6 +1,6 @@
 # Cross domain sentiment analysis on drugs reviews - AI 23/24 UNIFI
-## Studente: Niccolò Benedetto MAT. 7024656
-## Relatore: Paolo Frasconi
+## Autor: Niccolò Benedetto 
+## Supervisor: Paolo Frasconi
 
 > [!IMPORTANT]
 > Contenuto della repository:
