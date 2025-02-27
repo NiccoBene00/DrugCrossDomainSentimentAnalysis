@@ -1,55 +1,34 @@
-# Cross domain sentiment analysis on drugs reviews - UNIFI
-## Autor: Niccolò Benedetto 
+# Cross Domain Sentiment Analysis on Drugs Reviews - UNIFI
+## Author: Niccolò Benedetto 
 ## Supervisor: Paolo Frasconi
 
 > [!IMPORTANT]
-> Contenuto della repository:
->  - **Cross_Domain_SentimentAnlysis.ipynb**, Jupyter Notebook con il codice del progetto implementato con [Google Colab](https://colab.google/).
->  - **CD_SentimentAnalysis.pdf**, file pdf generato con software [LaTeX](https://www.latex-project.org/) inerente alla documentazione del progetto.
-
+> Repository Contents:
+>  - **Cross_Domain_SentimentAnlysis.ipynb**, a Jupyter Notebook with the project code implemented using [Google Colab](https://colab.google/).
+>  - **CD_SentimentAnalysis.pdf**, a PDF file generated with [LaTeX](https://www.latex-project.org/) containing the project documentation.
 
 **Project Assignment**:
 
-*In questo progetto si utilizzano implementazioni disponibili dell’algoritmo Perceptron (p.es. [scikit-learn](https://scikit-learn.org/stable/) 
-in Python o [Weka](https://ml.cms.waikato.ac.nz/weka/) in Java) al problema dell’analisi del sentimento su recensioni di farmaci, come descritto
-in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), cercando di riprodurre risultati analoghi a quelli riportati nella tabella 3 dell’articolo (caso cross-domain).  I risultati numerici potranno differire dato che gli autori utilizzano un classificatore diverso. Il dataset è disponibile sul [repository di UCI](https://archive.ics.uci.edu/ml/datasets/Drug+Review+Dataset+%28Drugs.com%29). È accettabile utilizzare un sottoinsieme dei dati e/o semplificare gli attributi lessicali (p.es. evitando i trigrammi) se le risorse di calcolo disponibili fossero insufficienti.*
-
+*In this project, available implementations of the Perceptron algorithm (e.g., [scikit-learn](https://scikit-learn.org/stable/) in Python or [Weka](https://ml.cms.waikato.ac.nz/weka/) in Java) are applied to the problem of sentiment analysis on drug reviews, as described in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), attempting to reproduce results similar to those reported in Table 3 of the paper (cross-domain case). Numerical results may differ since the authors use a different classifier. The dataset is available on the [UCI repository](https://archive.ics.uci.edu/ml/datasets/Drug+Review+Dataset+%28Drugs.com%29). It is acceptable to use a subset of the data and/or simplify the lexical attributes (e.g., avoiding trigrams) if the available computing resources are insufficient.*
 
 > [!NOTE]
-> **Informazioni utili**
+> **Useful Information**
 > 
-> L'implementazione del codice necessario alla realizzazione del progetto segue le seguenti fasi
->  1. preparazione dei dati del dataset:
->     pre-processing del testo (rimozione caratteri alfanumerici, conversione in minuscolo, tokenizzazione, rimozione delle stop-words) delle reviews attraverso la libreria
->     [NLTK](https://www.nltk.org/#natural-language-toolkit) e valutazione della polarità 
->     mediante il tool [VADER](https://pypi.org/project/vaderSentiment/). Questa valutazione fornirà un quantificatore (numero reale) che viene sfruttato per 
->     definire una nuova colonna del dataset, che rappresenta un nuovo valore di rating, il quale verrà utilizzato come etichetta del modello. In particolare se il 
->     quantificatore rientra nel range [-1;-0.3], allora il valore di rating è 0 (sentimento negativo), se cade in (-0.3;0.3), allora rating corrisponde a 1 
->     (sentimento neutro), mentre se rientra nell'intervallo [0.3;1], rating equivale a 2 (sentimento positivo).
+> The implementation of the code required for the project follows these steps:
+>  1. **Data Preparation of the Dataset:**
+>     Pre-processing of the text (removal of alphanumeric characters, conversion to lowercase, tokenization, removal of stop-words) of the reviews using the [NLTK](https://www.nltk.org/#natural-language-toolkit) library and sentiment evaluation using the [VADER](https://pypi.org/project/vaderSentiment/) tool. This evaluation will provide a quantifier (a real number) that is used to define a new column in the dataset, representing a new rating value, which will be used as the model label. Specifically, if the quantifier falls within the range [-1; -0.3], then the rating value is 0 (negative sentiment), if it falls in (-0.3; 0.3), then the rating corresponds to 1 (neutral sentiment), while if it falls within the range [0.3; 1], the rating is 2 (positive sentiment).
 > 
->     **Osservazione:** il range scelto per definire il nuovo valore di rating è da ritenersi congruo con il significato dei valori di compound generati dal tool 
->     VADER (vedi [about the scoring of VADER analysis](https://github.com/cjhutto/vaderSentiment)). Scelte di intervalli diversi
->     potranno, a seguito dell'addestramento del modello, produrre risultati diversi.
+>     **Note:** The chosen range for defining the new rating value is considered consistent with the meaning of the compound values generated by the VADER tool (see [about the scoring of VADER analysis](https://github.com/cjhutto/vaderSentiment)). Different interval choices may produce different results after model training.
 > 
->     [1] @Hutto, C.J. & Gilbert, E.E. (2014). VADER: A Parsimonious Rule-based Model for Sentiment Analysis of Social Media Text. Eighth International Conference on 
->         Weblogs and Social Media (ICWSM-14). Ann Arbor, MI, June 2014.
->  3. realizzazione del modello:
->     il modello prevede come dati di train i vari testi delle reviews, dunque associa come etichetta il rispettivo valore di rating (rating_model) calcolato durante la
->     fase di preparazione dei dati.
+>     [1] @Hutto, C.J. & Gilbert, E.E. (2014). VADER: A Parsimonious Rule-based Model for Sentiment Analysis of Social Media Text. Eighth International Conference on Weblogs and Social Media (ICWSM-14). Ann Arbor, MI, June 2014.
+>  2. **Model Building:**
+>     The model uses the review texts as training data, thus associating each text with its corresponding rating value (rating_model) calculated during the data preparation phase.
 >
->     **Osservazione:** il modello viene addestrato anche su i testi delle reviews grezzi (i.e. senza alcun tipo di pre-processing dei dati testuali). L'analisi del confronto dei
->     risultati (ottenuti per reviews "grezze" e reviews "pulite") fornirà qualche informazione sull'utilità di utilizzo della libreria NLTK.
->  4. addestramento e test del modello:
->     l'estrazione delle lexical-features dai dati di train viene eseguita attraverso il ricorso alla classe TfidVectorized del modulo scikit-learn. Si ottiene dunque
->     una nuova rappresentazione in forma matriciale dove le righe corrispondono ai testi e le colonne corrispondono a valori proporzionali alle features,
->     che tengono conto ella frequenza delle parole nel documento e della frequenza inversa nel corpus di addestramento (vedi [about TfidVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html#) per maggiori info). Si addestra quindi il modello mediante l'algoritmo predittivo
->     Perceptron a cui vengono passate come input le lexical-features estratte e le rispettive etichette. L'analisi cross-domain ci impone poi di utilizzare iterativamente Perceptron
->     per l'addestramento e il test del modello sui testi delle reviews appartenenti a porzioni del dataset complessivo, ottenute considerando tutte le possibili combinazioni conseguibili
->     incrociando coppie di domini (si veda la documentazione del progetto per maggiori chiarimenti).
+>     **Note:** The model is also trained on the raw review texts (i.e., without any text pre-processing). The comparative analysis of the results (obtained for "raw" and "clean" reviews) will provide some insights into the usefulness of using the NLTK library.
+>  3. **Training and Testing the Model:**
+>     The extraction of lexical features from the training data is performed using the TfidfVectorizer class from the scikit-learn module. This produces a new matrix representation where rows correspond to texts and columns correspond to values proportional to the features, taking into account both the frequency of words in the document and the inverse frequency in the training corpus (see [about TfidfVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html#) for more info). The model is then trained using the Perceptron predictive algorithm, which is provided as input with the extracted lexical features and their corresponding labels. The cross-domain analysis then requires iteratively using Perceptron for training and testing the model on review texts belonging to portions of the overall dataset, obtained by considering all possible combinations by crossing pairs of domains (see the project documentation for further clarifications).
 >
->     **Osservazione:** durante la fase di estrazione delle lexical-features si è deciso di far considerare all'istanza della classe TfidVectorizer le parole dei testi delle reviews
->     come unità di analisi per il vettorizzatore; in particolare questo valuta gli unigrammi (singole parole) e i bi-grammi (coppie di parole adiacenti), differentemente da lavoro
->     descritto in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), in cui si considerano anche i trigrammi.
->  6. produzione dei risultati: Perceptron genera un quantificatore, definito accuratezza della predizione, ottenute per una valutazione di confronto tra l'array delle etichette reali dei dati
->     di test e l'array delle predizioni effettuate. L'accuratezza è dunque calcolata attraverso il rapporto tra le predizioni corrette rispetto al totale delle predizioni generate. Il
->     quantificatore associato sarà un numero compreso tra 0 (nessuna predizione corretta) e 1 (tutte le predizioni effettuate sono corrette).
+>     **Note:** During the lexical feature extraction phase, the TfidfVectorizer instance considers the words in the review texts as the analysis units; specifically, it evaluates unigrams (single words) and bigrams (adjacent word pairs), differently from the work described in [Gräßer et al. 2018](https://dl.acm.org/doi/10.1145/3194658.3194677), which also considers trigrams.
+>  4. **Producing the Results:**
+>     The Perceptron generates a quantifier, defined as the prediction accuracy, obtained by comparing the array of true labels from the test data with the array of predictions made. Accuracy is calculated as the ratio of correct predictions to the total number of predictions generated. The associated quantifier will be a number between 0 (no correct predictions) and 1 (all predictions are correct).
+
