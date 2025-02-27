@@ -1,4 +1,4 @@
-# Cross domain sentiment analysis on drugs reviews - AI 23/24 UNIFI
+# Cross domain sentiment analysis on drugs reviews - UNIFI
 ## Autor: Niccolò Benedetto 
 ## Supervisor: Paolo Frasconi
 
